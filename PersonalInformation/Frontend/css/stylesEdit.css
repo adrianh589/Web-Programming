@@ -1,0 +1,12 @@
+#principalTitle{
+  text-align: center;
+  color: white;
+  font-family: 'Hanalei Fill', cursive;
+  font-size: 30px;
+}
+
+.form{
+  position: relative;
+  margin: auto;
+  width: 500px;
+}

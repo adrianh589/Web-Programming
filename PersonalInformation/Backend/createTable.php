@@ -1,0 +1,3 @@
+<?php
+
+$createTableIfNotExists = "CREATE TABLE IF NOT EXISTS `personal_information`.`datos` ( `Id` INT(155) NOT NULL AUTO_INCREMENT , `First_Name` VARCHAR(155) NOT NULL , `Last_Name` VARCHAR(155) NOT NULL , `Email` VARCHAR(155) NOT NULL , `Credit_Card_Type` VARCHAR(155) NOT NULL , `Card_Holder` VARCHAR(155) NOT NULL , `Card_Number` INT(155) NOT NULL , `CVV2` INT(155) NOT NULL , `Exp_Date` DATE NOT NULL , `Street_Adress` VARCHAR(155) NOT NULL , `City` VARCHAR(155) NOT NULL , `State` VARCHAR(155) NOT NULL , `ZIP` INT(155) NOT NULL , `Country` VARCHAR(155) NOT NULL , `Phone` INT(155) NOT NULL , PRIMARY KEY (`Id`)) ENGINE = InnoDB";
