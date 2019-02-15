@@ -1,0 +1,91 @@
+header{
+    background-color: purple;
+    text-align: center;
+    font-size: 45px;
+    font-style: italic;
+}
+
+body{
+  background-color: black;
+}
+
+nav{
+  background-color: yellow;
+  text-align: right;
+}
+
+section{
+  background-color: blue;
+}
+
+aside{
+  background-color: red;
+}
+
+footer{
+  background-color: orange;
+  text-align: center;
+}
+
+aside{
+}
+
+.contactsSection{
+  width: 25%;
+}
+
+.nav-bar{
+  display: inline;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.titleContacts{
+  text-align: center;
+  color: white;
+}
+
+.contactName{
+  font-family: cursive;
+}
+
+.contactPhoto{
+  display: inline;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 25px;
+}
+
+.chatBar{
+  text-align: left;
+  width: 50%;
+}
+
+.Bienvenida{
+  font-size: 50px;
+  font-family: monospace;
+  margin-left: 25%;
+}
+
+.textArea{
+  position: absolute;
+  left: 26%;
+  top: 32%;
+}
+
+.textInput{
+  margin-left: 26%;
+  border-radius: 10px;
+  width: 65%;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.ultimateImages{
+  width: 120px;
+  height: 130px;
+  padding-left: 10px;
+  padding-top: 10px;
+}

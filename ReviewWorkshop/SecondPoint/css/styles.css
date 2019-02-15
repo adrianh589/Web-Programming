@@ -1,0 +1,47 @@
+body{
+  position: relative;
+}
+#principalTitle{
+  text-align: center;
+  font-family: 'Sofia';
+  font-size: 80px;
+}
+
+.col-sm1{
+  background-color: black;
+  font-size: 30px;
+  color: white;
+  width: 150%;
+  text-align: center;
+}
+
+.navimg{
+  width: 300px;
+  height: 300px;
+  display:block;
+  margin:auto;
+}
+
+#video{
+  display:block;
+  margin:auto;
+}
+
+#titleBests{
+  text-align: center;
+  font-family: 'Sofia';
+  font-size: 30px;
+}
+
+#titleInfoCars{
+  font-family: 'Sofia';
+  text-align: center;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+#Subscriptionfield{
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Sofia';
+}
