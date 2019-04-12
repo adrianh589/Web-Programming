@@ -1,4 +1,4 @@
-package com.hackernews.noticia;
+package com.hackernews.modelo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package com.hackernews.servlets;
+package com.hackernews.controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.hackernews.usuario.usuario;
-import com.hackernews.usuario.usuarioDAO;
+import com.hackernews.modelo.usuario;
+import com.hackernews.modelo.usuarioDAO;
 
 @WebServlet("/iniciarSesion")
 

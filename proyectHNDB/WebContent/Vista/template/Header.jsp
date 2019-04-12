@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@page import="com.hackernews.usuario.usuario"%>
+	<%@page import="com.hackernews.modelo.usuario"%>
 	
 	<%
 		usuario user = (usuario) session.getAttribute("usuario") ;	

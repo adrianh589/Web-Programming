@@ -1,4 +1,4 @@
-package com.hackernews.servlets;
+package com.hackernews.controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;

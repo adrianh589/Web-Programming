@@ -1,6 +1,6 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.hackernews.usuario.usuario"%>
-<%@page import="com.hackernews.noticia.*"%>
+<%@page import="com.hackernews.controlador.*"%>
+<%@page import="com.hackernews.modelo.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	
