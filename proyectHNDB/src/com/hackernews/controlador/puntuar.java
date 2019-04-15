@@ -19,7 +19,7 @@ public class puntuar extends HttpServlet {
 		
 		int puntuada = noticiaDAO.votar(idNoticia);
 		
-		request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);
+		response.sendRedirect("/proyectHNDB/Vista/menuPrincipal.jsp");//Redireccionamos al menu principal cuando iniciemos la sesion
 		
 	}
 

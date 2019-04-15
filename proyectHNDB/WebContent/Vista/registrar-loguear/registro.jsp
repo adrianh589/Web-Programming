@@ -11,7 +11,7 @@
 	<b>Login</b>
 	<br>
 	<br>
-	<form method="get" action="../iniciarSesion">
+	<form method="post" action="../../iniciarSesion">
 		<input type="hidden" name="goto" value="news">
 		<table border="0">
 			<tr>
@@ -33,7 +33,7 @@
 	<b>Create Account</b>
 	<br>
 	<br>
-	<form method="post" action="../registrar">
+	<form method="post" action="../../registrar">
 		<input type="hidden" name="goto" value="news"> <input
 			type="hidden" name="creating" value="t">
 		<table border="0">

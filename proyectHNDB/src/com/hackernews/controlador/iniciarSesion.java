@@ -20,7 +20,7 @@ public class iniciarSesion extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
     
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		 
 		String nombreUsuario = request.getParameter("acct");
@@ -33,10 +33,10 @@ public class iniciarSesion extends HttpServlet {
         	session = request.getSession(true);
 			session.setAttribute("usuario", existe);
 			
-			request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);//Redireccionamos al menu principal cuando iniciemos la sesion
+			response.sendRedirect("/proyectHNDB/Vista/menuPrincipal.jsp");//Redireccionamos al menu principal cuando iniciemos la sesion
 			
         }else {
-        	request.getRequestDispatcher("/registrar-loguear/badLogin.jsp").forward(request, response);//Redireccionamos al bad login si se ingresaron mal los datos
+        	response.sendRedirect("/proyectHNDB/Vista/badLogin.jsp");//Redireccionamos al bad login si se ingresaron mal los datos
         }
           
     }

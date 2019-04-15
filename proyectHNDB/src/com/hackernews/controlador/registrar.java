@@ -33,9 +33,9 @@ public class registrar extends HttpServlet {
 		        	HttpSession session = request.getSession(true);
 					session.setAttribute("usuario", u);
 					
-					request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response); //Si no existe, lo redireccionamos al menu principal con sesion iniciada automaticamente
+					response.sendRedirect("/proyectHNDB/Vista/menuPrincipal.jsp");//Redireccionamos al menu principal cuando iniciemos la sesion
 		        }else {
-		        	request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response); //En caso de que el usuario este registrado, evitamos que inicie sesion (Arreglarlo porque en Ycombinator muestra los campos de create Account unicamente)
+		        	response.sendRedirect("/proyectHNDB/Vista/menuPrincipal.jsp");//En caso de que el usuario este registrado, evitamos que inicie sesion (Arreglarlo porque en Ycombinator muestra los campos de create Account unicamente)
 		        }
 	}
 

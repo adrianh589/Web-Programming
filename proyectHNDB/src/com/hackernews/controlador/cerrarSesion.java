@@ -21,6 +21,6 @@ public class cerrarSesion extends HttpServlet {
 		HttpSession session = request.getSession();//Obtenemos la sesion en caso de que exista
 		session.invalidate();//Destruimos la sesion del usuario actual
 		
-		request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);//Redireccionamos al menu principal cuando cerremos la sesion
+		response.sendRedirect("/proyectHNDB/Vista/menuPrincipal.jsp");//Redireccionamos al menu principal cuando iniciemos la sesion
 	}
 }

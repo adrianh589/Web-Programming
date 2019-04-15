@@ -37,9 +37,9 @@ public class publicacion extends HttpServlet {
         int guardada = noticiaDAO.guardar(n);
         
         if(guardada>0) {
-        	request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);//Si la noticia fue guardad, refirigimos al menu priincipal
+        	response.sendRedirect("/proyectHNDB/Vista/menuPrincipal.jsp");//Redireccionamos al menu principal cuando iniciemos la sesion
         }else {
-        	request.getRequestDispatcher("/submit/submit.jsp").forward(request, response);//Si no fue guardada, hubo un error y debera corregir errores
+        	response.sendRedirect("/proyectHNDB/Vista/submit/submit.jsp");//Si la noticia nose guardo lo redireccionamos al mismo sitio
         }
 	}
 

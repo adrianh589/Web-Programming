@@ -45,7 +45,7 @@
 							<%
 								} else {
 							%><a href="#">${usuario.getNombreUsuario()} </a>
-							(${usuario.getKarma()}) | <a href="./cerrarSesion">logout </a>
+							(${usuario.getKarma()}) | <a href="../cerrarSesion">logout </a>
 							<%
 								}
 							%>

@@ -29,7 +29,7 @@
 			</tr>
 			<tr style="height: 10px"></tr>
 			<tr>
-				<td><form method="get" action="../publicacion">
+				<td><form method="get" action="../../publicacion">
 						<input type="hidden" name="fnid" value="2pt8uABk1Oh8znE73bPA9c"><input
 							type="hidden" name="fnop" value="submit-page">
 						<script type="text/javascript">
