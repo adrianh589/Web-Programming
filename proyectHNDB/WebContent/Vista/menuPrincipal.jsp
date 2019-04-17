@@ -13,7 +13,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css"
 	href="css/styles.css">
-<link rel="shortcut icon" href="css/y18.gif">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="rss">
 <title>Hacker News</title>
 </head>

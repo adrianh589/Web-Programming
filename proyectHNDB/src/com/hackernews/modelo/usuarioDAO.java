@@ -88,11 +88,16 @@ public class usuarioDAO {
        try{  
            Connection con=usuarioDAO.getConnection();  
            PreparedStatement ps=con.prepareStatement(  
-                        "update datos set name=?,password=?,email=? where id=?");  
-           ps.setString(1,u.getNombreUsuario());  
-           ps.setString(2,u.getContraseña());  
-           ps.setString(3,u.getEmail()); 
-           ps.setInt(5,u.getId());  
+                        "update usuario set acerca_de_mi=?,email=?,showdead=?,noprocast=?,visitas_maximas=?,min_away=?,retraso=?"
+                        + " where id=?");  
+           ps.setString(1,u.getAcerca_de_mi());  
+           ps.setString(2,u.getEmail());  
+           ps.setString(3,u.getShowdead()); 
+           ps.setString(4,u.getNoprocast()); 
+           ps.setLong(5,u.getVisitasMaximas());
+           ps.setInt(6,u.getMinAway());
+           ps.setInt(7,u.getRetraso());
+           ps.setInt(8,u.getId());
              
            status=ps.executeUpdate();  
              
@@ -114,47 +119,6 @@ public class usuarioDAO {
        }catch(Exception e){e.printStackTrace();}  
          
        return status;  
-   } 
-   
-   public static usuario obtenerUsuarioPorId(int id){  
-       usuario u=new usuario();  
-         
-       try{  
-           Connection con=usuarioDAO.getConnection();  
-           PreparedStatement ps=con.prepareStatement("select * from datos where id=?");  
-           ps.setInt(1,id);  
-           ResultSet rs=ps.executeQuery();  
-           if(rs.next()){  
-               u.setId(rs.getInt(1));  
-               u.setNombreUsuario(rs.getString(2));  
-               u.setContraseña(rs.getString(3));  
-               u.setEmail(rs.getString(4));
-           }  
-           con.close();  
-       }catch(Exception ex){ex.printStackTrace();}  
-         
-       return u;  
-   }  
-   
-   public static List<usuario> getAllEmployees(){  
-       List<usuario> list=new ArrayList<usuario>();  
-         
-       try{  
-           Connection con=usuarioDAO.getConnection();  
-           PreparedStatement ps=con.prepareStatement("select * from datos");  
-           ResultSet rs=ps.executeQuery();  
-           while(rs.next()){  
-               usuario u=new usuario();  
-               u.setId(rs.getInt(1));  
-               u.setNombreUsuario(rs.getString(2));  
-               u.setContraseña(rs.getString(3));  
-               u.setEmail(rs.getString(4));
-               list.add(u);  
-           }  
-           con.close();  
-       }catch(Exception e){e.printStackTrace();}  
-         
-       return list;  
-   }  
+   }
 
 }

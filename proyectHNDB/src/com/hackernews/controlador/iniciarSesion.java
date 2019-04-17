@@ -36,7 +36,7 @@ public class iniciarSesion extends HttpServlet {
 			response.sendRedirect("/proyectHNDB/Vista/menuPrincipal.jsp");//Redireccionamos al menu principal cuando iniciemos la sesion
 			
         }else {
-        	response.sendRedirect("/proyectHNDB/Vista/badLogin.jsp");//Redireccionamos al bad login si se ingresaron mal los datos
+        	response.sendRedirect("/proyectHNDB/Vista/registrar-loguear/badLogin.jsp");//Redireccionamos al bad login si se ingresaron mal los datos
         }
           
     }

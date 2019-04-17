@@ -20,7 +20,7 @@
 				cellspacing="0" width="100%" style="padding: 2px">
 				<tr>
 					<td style="width: 18px; padding-right: 4px"><a href="#"><img
-							src="img/y18.gif" width="18" height="18"
+							src="/proyectHNDB/Vista/img/y18.gif" width="18" height="18"
 							style="border: 1px white solid;"></a></td>
 					<td style="line-height: 12pt; height: 10px;"><span
 						class="pagetop"><b class="hnname"><a href="#">Hacker
@@ -44,8 +44,8 @@
 							href="registrar-loguear/registro.jsp">login</a>
 							<%
 								} else {
-							%><a href="#">${usuario.getNombreUsuario()} </a>
-							(${usuario.getKarma()}) | <a href="../cerrarSesion">logout </a>
+							%><a href="/proyectHNDB/Vista/usuario/perfilUsuario.jsp">${usuario.getNombreUsuario()} </a>
+							(${usuario.getKarma()}) | <a href="/proyectHNDB/cerrarSesion">logout </a>
 							<%
 								}
 							%>
