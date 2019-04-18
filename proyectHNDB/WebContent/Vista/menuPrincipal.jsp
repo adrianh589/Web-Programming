@@ -49,7 +49,7 @@
 						<tr>
 							<td colspan="2"></td>
 							<td class="subtext"><span class="score" id="score_19606101"><%out.print(noticias.get(i).getPuntos()); %>
-									points</span> by <a href="user?id=apjana" class="hnuser"><%out.write(noticias.get(i).getAutor()); %></a> <span
+									points</span> by <a href="../verUsuario?user=<%out.print(noticias.get(i).getId_usuario()); %>" class="hnuser"><%out.write(noticias.get(i).getAutor()); %></a> <span
 								class="age"><a href="#"><%out.print(noticias.get(i).getFecha_publicacion()); %></a></span> <span
 								id="unv_19606101"></span> | <a
 								href="hide?id=19606101&amp;goto=news">hide</a> | <a

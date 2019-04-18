@@ -19,11 +19,11 @@
 		<td bgcolor="#ff6600"><table border="0" cellpadding="0"
 				cellspacing="0" width="100%" style="padding: 2px">
 				<tr>
-					<td style="width: 18px; padding-right: 4px"><a href="#"><img
+					<td style="width: 18px; padding-right: 4px"><a href="/proyectHNDB/Vista/menuPrincipal.jsp"><img
 							src="/proyectHNDB/Vista/img/y18.gif" width="18" height="18"
 							style="border: 1px white solid;"></a></td>
 					<td style="line-height: 12pt; height: 10px;"><span
-						class="pagetop"><b class="hnname"><a href="#">Hacker
+						class="pagetop"><b class="hnname"><a href="/proyectHNDB/Vista/menuPrincipal.jsp">Hacker
 									News</a></b> <a href="#">new</a> | <a href="#">past</a> | <a href="#">comments</a>
 							| <a href="#">ask</a> | <a href="#">show</a> | <a href="#">jobs</a>
 							| 	<%
@@ -41,7 +41,7 @@
 						class="pagetop"> <%
  							if (user == null) {
  							%><a
-							href="registrar-loguear/registro.jsp">login</a>
+							href="/proyectHNDB/Vista/registrar-loguear/registro.jsp">login</a>
 							<%
 								} else {
 							%><a href="/proyectHNDB/Vista/usuario/perfilUsuario.jsp">${usuario.getNombreUsuario()} </a>

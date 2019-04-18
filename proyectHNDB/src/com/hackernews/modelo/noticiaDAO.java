@@ -52,7 +52,7 @@ public class noticiaDAO {
         
         try{  
             Connection con=noticiaDAO.getConnection();  
-            PreparedStatement ps=con.prepareStatement("SELECT N.titulo, N.url, N.host,N.puntos, U.nombre_usuario, N.fecha_publicacion\r\n" + 
+            PreparedStatement ps=con.prepareStatement("SELECT N.titulo, N.url, N.host,N.puntos, U.nombre_usuario, N.fecha_publicacion, N.id_usuario\r\n" + 
             		"FROM noticia N\r\n" + 
             		"LEFT JOIN usuario U\r\n" + 
             		"ON U.id = N.id_usuario");  
@@ -64,9 +64,10 @@ public class noticiaDAO {
                n.setHost(rs.getString(3));  
                n.setPuntos(rs.getInt(4));  
                n.setAutor(rs.getString(5));
-               n.setFecha_publicacion(rs.getTimestamp(6).toString());    
+               n.setFecha_publicacion(rs.getTimestamp(6).toString());
+               n.setId_usuario(rs.getInt(7));
                
-                list.add(n);  
+               list.add(n);  
             }  
             con.close();  
         }catch(Exception e){e.printStackTrace();}  

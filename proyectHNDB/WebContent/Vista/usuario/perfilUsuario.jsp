@@ -2,10 +2,11 @@
 	pageEncoding="ISO-8859-1"%>
 	<%@page import="com.hackernews.modelo.usuario"%>
 	
-	<% usuario user = (usuario) session.getAttribute("usuario") ;
-	
-	String showdead = user.getShowdead();
-	String noprocast = user.getNoprocast();
+	<% 
+		usuario user = (usuario) session.getAttribute("usuario") ;
+		
+		String showdead = user.getShowdead();
+		String noprocast = user.getNoprocast();
 	%>
 	
 <!DOCTYPE html>

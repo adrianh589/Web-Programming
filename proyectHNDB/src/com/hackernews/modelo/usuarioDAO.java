@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -119,6 +120,34 @@ public class usuarioDAO {
        }catch(Exception e){e.printStackTrace();}  
          
        return status;  
+   }
+   
+   public static usuario traerUsuario(int id) {
+	   usuario u = new usuario();  
+       
+       try{  
+           Connection con=usuarioDAO.getConnection();  
+           PreparedStatement ps=con.prepareStatement("select nombre_usuario, contraseña, fecha_creacion, karma, acerca_de_mi, email, showdead, noprocast, visitas_maximas, min_away, retraso\r\n" + 
+           		"from usuario where id=?");  
+           ps.setInt(1,id);  
+           ResultSet rs=ps.executeQuery();  
+           if(rs.next()){  
+	            u.setNombreUsuario(rs.getString(1));
+	           	u.setContraseña(rs.getString(2));
+	           	u.setFecha_creacion(rs.getTimestamp(3));
+	            u.setKarma(rs.getInt(4));
+	           	u.setAcerca_de_mi(rs.getString(5));
+	           	u.setEmail(rs.getString(6));
+	           	u.setShowdead(rs.getString(7));
+	           	u.setNoprocast(rs.getString(8));
+	           	u.setVisitasMaximas(rs.getInt(9));
+	           	u.setMinAway(rs.getInt(10));
+	           	u.setRetraso(rs.getInt(11));
+           }  
+           con.close();  
+       }catch(Exception ex){ex.printStackTrace();}  
+         
+       return u; 
    }
 
 }
