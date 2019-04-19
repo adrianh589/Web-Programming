@@ -53,7 +53,7 @@
 								class="age"><a href="#"><%out.print(noticias.get(i).getFecha_publicacion()); %></a></span> <span
 								id="unv_19606101"></span> | <a
 								href="hide?id=19606101&amp;goto=news">hide</a> | <a
-								href="item?id=19606101">3&nbsp;comments</a></td>
+								href="/proyectHNDB/comentar?noticiaid=<%out.print(i+1); %>">discuss</a></td>
 						</tr>
 						<tr class="spacer" style="height: 5px"></tr>
 						

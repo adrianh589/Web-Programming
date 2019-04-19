@@ -28,10 +28,10 @@
 							| <a href="#">ask</a> | <a href="#">show</a> | <a href="#">jobs</a>
 							| 	<%
  									if (user == null) {
- 								%><a href="registrar-loguear/badLogin.jsp?variable=submit">submit</a> <%
+ 								%><a href="/proyectHNDB/Vista/registrar-loguear/badLogin.jsp?variable=submit">submit</a> <%
 								} else {
 							%>
-								<a href="submit/submit.jsp">submit</a>
+								<a href="/proyectHNDB/Vista/submit/submit.jsp">submit</a>
 							<%
 								}
 							%>

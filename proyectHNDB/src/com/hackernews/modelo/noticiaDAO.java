@@ -89,5 +89,40 @@ public class noticiaDAO {
           
         return status;   
 	   }
+	
+	/**
+	 * Metodo que devuelve una noticia mediante su id
+	 * @param id Recibe el id de la noticia
+	 * @return Devuelve la noticia de la base de datos
+	 */
+	public static noticia obtenerNoticiaPorId(int id){  
+	        noticia n=new noticia(); 
+	        
+	        try{  
+	            Connection con=noticiaDAO.getConnection();  
+	            PreparedStatement ps=con.prepareStatement("SELECT N.id,U.nombre_usuario,N.titulo,N.contenido,N.fecha_publicacion,N.puntos,N.url,N.visibilidad,N.host\r\n" + 
+	            		"FROM noticia N\r\n" + 
+	            		"LEFT JOIN usuario U\r\n" + 
+	            		"ON U.id = N.id_usuario\r\n" + 
+	            		"WHERE N.id = ?");  
+	            ps.setInt(1,id);  
+	            ResultSet rs=ps.executeQuery();  
+	            if(rs.next()){  
+	                n.setId(rs.getInt(1));  
+	                n.setAutor(rs.getString(2));  
+	                n.setTitulo(rs.getString(3));  
+	                n.setContenido(rs.getString(4));  
+	                n.setFecha_publicacion(rs.getString(5).toString()); 
+	                n.setPuntos(rs.getInt(6)); 
+	                n.setUrl(rs.getString(7)); 
+	                n.setVisibilidad(rs.getBoolean(8));
+	                n.setHost(rs.getString(9)); 
+	            } 
+	            
+	            con.close();  
+	        }catch(Exception ex){ex.printStackTrace();}  
+	          
+	        return n;  
+	    }
 
 }
