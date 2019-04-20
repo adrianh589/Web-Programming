@@ -49,11 +49,11 @@ public class comentarioDAO {
         try{  
             Connection con=noticiaDAO.getConnection();  
             PreparedStatement ps=con.prepareStatement("SELECT U.nombre_usuario, C.fecha_creacion, C.contenido\r\n" + 
-            		"FROM noticia N\r\n" + 
-            		"INNER JOIN comentario C\r\n" + 
-            		"ON N.id = C.id_noticia\r\n" + 
+            		"FROM comentario C\r\n" + 
             		"INNER JOIN usuario U\r\n" + 
-            		"ON U.id = N.id_usuario\r\n" + 
+            		"ON C.id_usuario = U.id\r\n" + 
+            		"INNER JOIN noticia N\r\n" + 
+            		"ON C.id_noticia = N.id\r\n" + 
             		"WHERE N.id = ?");  
             ps.setInt(1,id);  
             ResultSet rs=ps.executeQuery();  

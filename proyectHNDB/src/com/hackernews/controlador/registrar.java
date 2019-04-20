@@ -27,15 +27,20 @@ public class registrar extends HttpServlet {
 		        u.setNombreUsuario(nombreUsuario);
 		        u.setContraseña(contraseña);
 		        
-		        int existe = usuarioDAO.guardar(u);
+		        int existe = usuarioDAO.guardar(u);//Vemos si el query se ejecuto correctamnte
 		        
 		        if(existe>0) {
-		        	HttpSession session = request.getSession(true);
-					session.setAttribute("usuario", u);
+		        	HttpSession session = request.getSession();//Obtenemos la sesion
+		        	
+		        	usuario user=usuarioDAO.verificar(nombreUsuario, contraseña);//Pasamos a traer los atributos del nuevo usuario
+		        	
+					session.setAttribute("usuario", user);//Los ponemos en sesion
 					
 					response.sendRedirect("/proyectHNDB/Vista/menuPrincipal.jsp");//Redireccionamos al menu principal cuando iniciemos la sesion
 		        }else {
-		        	response.sendRedirect("/proyectHNDB/Vista/menuPrincipal.jsp");//En caso de que el usuario este registrado, evitamos que inicie sesion (Arreglarlo porque en Ycombinator muestra los campos de create Account unicamente)
+		        	
+		        	response.sendRedirect("/proyectHNDB/Vista/registrar-loguear/usuarioExistente.jsp");//En caso de que el usuario este registrado, evitamos que inicie sesion (Arreglarlo porque en Ycombinator muestra los campos de create Account unicamente)
+		        	
 		        }
 	}
 
