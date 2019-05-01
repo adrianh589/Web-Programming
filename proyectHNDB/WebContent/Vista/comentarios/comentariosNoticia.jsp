@@ -4,10 +4,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<%@page import="com.hackernews.modelo.noticia"%>
+	<%@page import="com.hackernews.modelo.usuario"%>
 	
 	<%
 		noticia noticia = (noticia) request.getAttribute("noticiaSeleccionada"); 
 		ArrayList<comentario> comentarios = comentarioDAO.obtenerComentariosPorIdNoticia(noticia.getId());
+		usuario user = (usuario) session.getAttribute("usuario") ;
 	%>
 	
 <!DOCTYPE html>
@@ -18,7 +20,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/proyectHNDB/Vista/css/styles.css">
 <link rel="shortcut icon" href="favicon.ico">
-<title><% out.write(noticia.getTitulo()); %> | Hacker News</title>
+<title><%=noticia.getTitulo() %> | Hacker News</title>
 </head>
 <body>
 	<center>
@@ -29,7 +31,7 @@
 			<jsp:include page="/Vista/template/Header.jsp"></jsp:include>
 			
 			
-			<tr id="pagespace" title="<% out.write(noticia.getTitulo()); %>" style="height: 10px"></tr>
+			<tr id="pagespace" title="<%=noticia.getTitulo()%>" style="height: 10px"></tr>
 			<tr>
 				<td><table class="fatitem" border="0">
 						<tr class='athing' id='19693253'>
@@ -41,16 +43,16 @@
 											class='votearrow' title='upvote'></div></a>
 								</center></td>
 							<td class="title"><a
-								href="<% out.write(noticia.getUrl()); %>"
-								class="storylink" rel="nofollow"><% out.write(noticia.getTitulo()); %></a><span
+								href="<%= noticia.getUrl() %>"
+								class="storylink" rel="nofollow"><%= noticia.getTitulo() %></a><span
 								class="sitebit comhead"> (<a href="from?site=kite.com"><span
-										class="sitestr"><% out.write(noticia.getHost()); %></span></a>)
+										class="sitestr"><%= noticia.getHost() %></span></a>)
 							</span></td>
 						</tr>
 						<tr>
 							<td colspan="2"></td>
-							<td class="subtext"><span class="score" id="score_19693253"><% out.print(noticia.getPuntos()); %>
-									point</span> by <a href="user?id=brendanmcd" class="hnuser"><% out.write(noticia.getAutor()); %></a>
+							<td class="subtext"><span class="score" id="score_19693253"><%= noticia.getPuntos() %>
+									point</span> by <a href="user?id=brendanmcd" class="hnuser"><%= noticia.getAutor() %></a>
 								<span class="age"><a href="item?id=19693253">0
 										minutes ago</a></span> <span id="unv_19693253"></span> | <a
 								href="hide?id=19693253&amp;auth=900706e0cbf87cd017524c3ae3cb2919200a69f8&amp;goto=item%3Fid%3D19693253">hide</a>
@@ -66,7 +68,7 @@
 						<tr>
 							<td colspan="2"></td>
 							<td>
-								<form method="post" action="/proyectHNDB/comentar?idNoticia=<% out.print(noticia.getId()); %>">
+								<form method="post" action="/proyectHNDB/comentar?idNoticia=<%= noticia.getId() %>">
 									<input type="hidden" name="parent" value="19693253"><input
 										type="hidden" name="goto" value="item?id=19693253"><input
 										type="hidden" name="hmac"
@@ -104,8 +106,8 @@
 												<td class="default"><div
 														style="margin-top: 2px; margin-bottom: -10px;">
 														<span class="comhead"> <a href="user?id=phildo3"
-															class="hnuser"><%out.write(comentarios.get(i).getAutor()); %></a> <span class="age"><a
-																href="item?id=19695810"><%out.write(comentarios.get(i).getFecha_creacion()); %></a></span> <span
+															class="hnuser"><%= comentarios.get(i).getAutor() %></a> <span class="age"><a
+																href="item?id=19695810"><%= comentarios.get(i).getFecha_creacion() %></a></span> <span
 															id="unv_19695810"></span><span class="par"></span> <a
 															class="togg" n="1" href="javascript:void(0)"
 															onclick="return toggle(event, 19695810)">[-]</a> <span
@@ -114,11 +116,11 @@
 													</div>
 													<br>
 												<div class="comment">
-														<span class="commtext c00"><%out.write(comentarios.get(i).getContenido()); %></span>
+														<span class="commtext c00"><%= comentarios.get(i).getContenido() %></span>
 														<div class="reply">
 															<p>
 																<font size="1"> <u><a
-																		href="reply?id=19695810&amp;goto=item%3Fid%3D19695477%2319695810">reply</a></u>
+																		href="/proyectHNDB/Vista/comentarios/comentariosComentario.jsp?usuarioAutor=<%= user.getNombreUsuario() %>&idcomentario=<%= comentarios.get(i).getId() %>&idnoticia=<%= comentarios.get(i).getId_noticia() %>&nombreNoticia=<%=comentarios.get(i).getNombreNoticia() %>&contenido=<%= comentarios.get(i).getContenido() %>">reply</a></u>
 																</font>
 															</p>
 														</div>

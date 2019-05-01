@@ -30,6 +30,7 @@ public class comentar extends HttpServlet {
 		
 			//Obtenemos por metodo get la noticia seleccionada
 			int id_noticia = Integer.parseInt(request.getParameter("noticiaid"));
+			String noticiaTitulo = request.getParameter("noticiaTitulo");
 			
 			noticia noticia = noticiaDAO.obtenerNoticiaPorId(id_noticia);
 			

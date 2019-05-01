@@ -14,6 +14,7 @@ public class comentario {
 	private String contenido;
 	private String fecha_creacion;
 	private int votos;
+	String nombreNoticia;
 	
 	public int getId() {
 		return id;
@@ -56,6 +57,12 @@ public class comentario {
 	}
 	public void setFecha_creacion(String fecha_creacion) {
 		this.fecha_creacion = fecha_creacion;
+	}
+	public String getNombreNoticia() {
+		return nombreNoticia;
+	}
+	public void setNombreNoticia(String nombreNoticia) {
+		this.nombreNoticia = nombreNoticia;
 	}
 	
 	

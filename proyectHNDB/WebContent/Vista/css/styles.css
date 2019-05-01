@@ -36,6 +36,8 @@ a:visited { color:#828282; text-decoration:none; }
 .cce, .cce a:link, .cce a:visited { color:#cecece; }
 .cdd, .cdd a:link, .cdd a:visited { color:#dddddd; }
 
+.sitestr{color: #828282; }
+
 .pagetop a:visited { color:#000000;}
 .topsel a:link, .topsel a:visited { color:#ffffff; }
 
@@ -45,7 +47,7 @@ a:visited { color:#828282; text-decoration:none; }
 .comhead a:link, .subtext a:visited { color:#828282; }
 .comhead a:hover { text-decoration:underline; }
 
-.hnmore a:link, a:visited { color:#828282; }
+.hnmore a:link, a:visited { color:#000000; }
 .hnmore { text-decoration:underline; }
 
 .default p { margin-top: 8px; margin-bottom: 0px; }

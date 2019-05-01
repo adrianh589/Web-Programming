@@ -48,13 +48,13 @@ public class comentarioDAO {
           
         try{  
             Connection con=noticiaDAO.getConnection();  
-            PreparedStatement ps=con.prepareStatement("SELECT U.nombre_usuario, C.fecha_creacion, C.contenido\r\n" + 
-            		"FROM comentario C\r\n" + 
-            		"INNER JOIN usuario U\r\n" + 
-            		"ON C.id_usuario = U.id\r\n" + 
-            		"INNER JOIN noticia N\r\n" + 
-            		"ON C.id_noticia = N.id\r\n" + 
-            		"WHERE N.id = ?");  
+            PreparedStatement ps=con.prepareStatement("SELECT U.nombre_usuario, C.fecha_creacion, C.contenido, C.id, C.id_noticia,N.titulo\r\n" + 
+            		"            		FROM comentario C\r\n" + 
+            		"            		INNER JOIN usuario U\r\n" + 
+            		"            		ON C.id_usuario = U.id\r\n" + 
+            		"            		INNER JOIN noticia N\r\n" + 
+            		"            		ON C.id_noticia = N.id\r\n" + 
+            		"            		WHERE N.id = ?");  
             ps.setInt(1,id);  
             ResultSet rs=ps.executeQuery();  
             while(rs.next()){  
@@ -62,6 +62,9 @@ public class comentarioDAO {
                 c.setAutor(rs.getString(1));   
                 c.setFecha_creacion(rs.getString(2).toString());  
                 c.setContenido(rs.getString(3));  
+                c.setId(rs.getInt(4));
+                c.setId_noticia(rs.getInt(5));
+                c.setNombreNoticia(rs.getString(6));
                 
                 list.add(c);
             } 
@@ -70,6 +73,7 @@ public class comentarioDAO {
           
         return list;
 	}
+	
 	
 
 }
