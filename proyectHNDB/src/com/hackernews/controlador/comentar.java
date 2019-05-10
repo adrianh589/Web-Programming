@@ -74,7 +74,7 @@ public class comentar extends HttpServlet {
 			rd.forward(request, response);
 			
 		} else {
-			response.sendRedirect("/proyectHNDB/Vista/comentarios/comentariosNoticia.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/Vista/comentarios/comentariosNoticia.jsp");
 		}
 		
 		

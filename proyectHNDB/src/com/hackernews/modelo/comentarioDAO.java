@@ -74,6 +74,54 @@ public class comentarioDAO {
         return list;
 	}
 	
+	public static int guardarComentariosComentario(comentario c){  
+	       int status=0;  
+	       try{  
+	           Connection con=noticiaDAO.getConnection();  
+	           PreparedStatement ps=con.prepareStatement(  
+	                        "INSERT INTO comentarios_comentario (id_usuario,id_comentario,id_noticia,contenido) VALUES (?,?,?,?)");
+	           ps.setInt(1,c.getId_usuario());
+	           ps.setInt(2, c.getId());
+	           ps.setInt(3, c.getId_noticia());
+	           ps.setString(4, c.getContenido());
+	             
+	           status=ps.executeUpdate();  
+	           System.out.println(status);
+	             
+	           con.close();  
+	       }catch(Exception ex){ex.printStackTrace();}  
+	         
+	       return status;  
+	   }
+	
+	public static ArrayList<comentario> obtenerComentariosdeComentario(int idComentario){
+		ArrayList<comentario> list = new ArrayList<comentario>();  
+          
+        try{  
+            Connection con=noticiaDAO.getConnection();  
+            PreparedStatement ps=con.prepareStatement("SELECT U.nombre_usuario, CC.contenido \r\n" + 
+            		"FROM comentarios_comentario CC \r\n" + 
+            		"INNER JOIN usuario U\r\n" + 
+            		"ON CC.id_usuario = U.id \r\n" + 
+            		"INNER JOIN noticia N\r\n" + 
+            		"ON CC.id_noticia = N.id \r\n" + 
+            		"INNER JOIN comentario C \r\n" + 
+            		"ON CC.id_comentario = C.id \r\n" + 
+            		"WHERE CC.id_comentario = ?");  
+            ps.setInt(1,idComentario); 
+            ResultSet rs=ps.executeQuery();  
+            while(rs.next()){  
+            	comentario c=new comentario(); 
+                c.setAutor(rs.getString(1));   
+                c.setContenido(rs.getString(2));  
+                
+                list.add(c);
+            } 
+            con.close();  
+        }catch(Exception ex){ex.printStackTrace();}  
+          
+        return list;
+	}
 	
 
 }

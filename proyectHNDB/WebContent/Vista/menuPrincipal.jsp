@@ -4,7 +4,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	
-	<% ArrayList<noticia> noticias = noticiaDAO.obtenerNoticias(); %>
+	<% 
+		ArrayList<noticia> noticias = noticiaDAO.obtenerNoticias();
+		usuario user = (usuario) session.getAttribute("usuario") ;	
+	%>
 	
 <!DOCTYPE html>
 <html op="news">
@@ -52,13 +55,13 @@
 									points</span> by <a href="../verUsuario?user=<%=noticias.get(i).getId_usuario()%>" class="hnuser"><%=noticias.get(i).getAutor() %></a> <span
 								class="age"><a href="#"><%=noticias.get(i).getFecha_publicacion()%></a></span> <span
 								id="unv_19606101"></span> | <a
-								href="hide?id=19606101&amp;goto=news">hide</a> | <a
-								href="/proyectHNDB/comentar?noticiaid=<%=i+1%>">discuss</a></td>
+								href="hide?id=19606101&amp;goto=news">hide</a>  <%if(user==null){%>| <a href="/proyectHNDB/Vista/registrar-loguear/badLogin.jsp">discuss</a>
+								<%}else{%>| <a href="/proyectHNDB/comentar?noticiaid=<%=i+1%>">discuss</a><%}%>
+									
+						<%}%>
+								</td>
 						</tr>
 						<tr class="spacer" style="height: 5px"></tr>
-						
-						<%}%>
-						
 					</table></td>
 			</tr>
 			

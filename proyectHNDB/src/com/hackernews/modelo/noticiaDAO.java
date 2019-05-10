@@ -80,8 +80,8 @@ public class noticiaDAO {
         try{  
             Connection con=noticiaDAO.getConnection();  
             PreparedStatement ps=con.prepareStatement(  
-                         "update noticia set puntos=puntos+1 where id="+idNoticia);
-              
+                         "UPDATE noticia SET puntos = puntos + 1 WHERE id= ?");
+             ps.setInt(1, idNoticia);
             status=ps.executeUpdate();  
               
             con.close();  

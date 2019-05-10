@@ -69,12 +69,19 @@
 						<tr>
 							<td colspan="2"></td>
 							<td>
-								<form method="post" action="comment">
+								<form method="get" action="/proyectHNDB/comentarComentario?idnoticia=<%=request.getParameter("idnoticia")%>">
 									<input type="hidden" name="parent" value="19793552"><input
 										type="hidden" name="goto" value="item?id=19791683#19793552"><input
 										type="hidden" name="hmac"
 										value="9761cba20326250b9ee725fe9e32054f0593be80">
 									<textarea name="text" rows="6" cols="60"></textarea>
+									
+									
+									<input type="hidden" value="<%=request.getParameter("idusuario")%>" name="idusuario"/>
+									<input type="hidden" value="<%=request.getParameter("idcomentario")%>" name="idcomentario"/>
+									<input type="hidden" value="<%=request.getParameter("idnoticia")%>" name="idnoticia"/>
+									
+									
 									<br>
 									<br>
 									<input type="submit" value="reply">
